@@ -1,12 +1,9 @@
 package Assignment;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
-
 import io.restassured.builder.RequestSpecBuilder;
-import io.restassured.builder.ResponseSpecBuilder;
-import io.restassured.http.ContentType;
 import io.restassured.specification.RequestSpecification;
-import io.restassured.specification.ResponseSpecification;
+
 
 public class singleResource {
 
@@ -16,8 +13,7 @@ public class singleResource {
 		RequestSpecification re= new RequestSpecBuilder().setBaseUri("https://reqres.in")
 				.build();
 
-ResponseSpecification rs =new ResponseSpecBuilder().expectStatusCode(200).expectContentType(ContentType.JSON)
-.build();
+
 
 
 given().log().all().spec(re)
@@ -28,7 +24,7 @@ given().log().all().spec(re)
 
 
 
-
+//Single Resource Not Found API
 
 given().log().all().spec(re)
 .when().get("api/unknown/23")

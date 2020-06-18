@@ -1,57 +1,40 @@
 package Assignment;
 
-import static io.restassured.RestAssured.given;
-
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.util.Properties;
 import io.restassured.builder.RequestSpecBuilder;
-import io.restassured.response.Response;
+import io.restassured.path.json.JsonPath;
 import io.restassured.specification.RequestSpecification;
-
 import pojo.postCreate;
+import static io.restassured.RestAssured.given;
 
 public class create {
 
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-
-		RequestSpecification re= new RequestSpecBuilder().setBaseUri(getUrlValue("baseUrl"))
+		
+		RequestSpecification re= new RequestSpecBuilder().setBaseUri("https://reqres.in")
 				.build();
 		
  postCreate c= new postCreate();
  c.setName("morpheus");
  c.setJob("leader");
-		 Response res= given().log().all().spec(re).body(c).header("Content-Type","application/json")
+		 String res= given().log().all().spec(re).body(c).header("Content-Type","application/json")
 .when().post("api/users")
 .then().log().all().assertThat().statusCode(201).header("Server", "cloudflare")
-.extract().response();
-             String responseString = res.asString();
-             System.out.println(responseString);
-	
+.extract().response().asString();
+		 System.out.println(res);
+		 
+		 JsonPath js= new JsonPath(res);
+		 js.getString("id");
+		 String getID =js.getString("id");
+		 System.out.println(getID);
+		 
+		 
+		 
+		 
+		 
+           
+}
 
-}
-	
-	public static String getUrlValue(String key) throws IOException
-	{
-	Properties pr =new Properties();
-	FileInputStream fl =new FileInputStream("C:\\Users\\Shamshad\\eclipse-workspace\\DEMO\\src\\resources\\url.properties");
-	pr.load(fl);
-	return pr.getProperty(key);
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-}
-}
+	}
+
+
