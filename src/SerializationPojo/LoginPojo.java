@@ -15,8 +15,4 @@ public class LoginPojo {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
-	
-	
-
 }

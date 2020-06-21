@@ -1,12 +1,14 @@
 package DeserializationPojo;
 
-public class ListResourceDataPojo {
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+public class ResourcePojo {
 	private int id;
 	private String name;
 	private int year;
 	private String color;
-	private String pantone_value;
-	
+	@JsonProperty("pantone_value")
+	private String pantoneValue;
 	public int getId() {
 		return id;
 	}
@@ -31,13 +33,10 @@ public class ListResourceDataPojo {
 	public void setColor(String color) {
 		this.color = color;
 	}
-	public String getPantone_value() {
-		return pantone_value;
+	public String getPantoneValue() {
+		return pantoneValue;
 	}
-	public void setPantone_value(String pantone_value) {
-		this.pantone_value = pantone_value;
+	public void setPantone_value(String pantoneValue) {
+		this.pantoneValue = pantoneValue;
 	}
-	
-
-
 }

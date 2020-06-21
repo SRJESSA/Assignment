@@ -3,7 +3,6 @@ package SerializationPojo;
 public class RegisterPojo {
 	private String email;
 	private String password;
-	
 	public String getEmail() {
 		return email;
 	}
@@ -16,6 +15,4 @@ public class RegisterPojo {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
-
 }
