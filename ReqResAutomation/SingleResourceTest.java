@@ -7,8 +7,13 @@ import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.specification.RequestSpecification;
 
 public class SingleResourceTest {
-	 public static void main(String[] args) {
+	public static void main(String[] args) {
 
+		single_resource_data();
+		single_resource_not_found();
+	}
+
+	private static void single_resource_data() {
 		RequestSpecification req_spec = new RequestSpecBuilder().setBaseUri(BaseUrl.baseUri()).build();
 		GetResourceResponsePojo single_res = given().spec(req_spec)
 	   .when().get("api/unknown/2").as(GetResourceResponsePojo.class);
@@ -22,14 +27,12 @@ public class SingleResourceTest {
 		System.out.println(single_res.getAd().getUrl());
 	}
 
-//Single Resource Not Found API
-		
-	  public void main() {
-		
-		 RequestSpecification req_spec = new RequestSpecBuilder().setBaseUri(BaseUrl.baseUri()).build();
-		 given().log().all().spec(req_spec)
-		.when().get("api/unknown/23")
-		.then().assertThat()
-		.statusCode(404);
+	private static void single_resource_not_found() {
+
+		RequestSpecification req_spec = new RequestSpecBuilder().setBaseUri(BaseUrl.baseUri()).build();
+		given().log().all().spec(req_spec)
+	   .when().get("api/unknown/23")
+	   .then().assertThat()
+	   .statusCode(404);
 	}
 }
