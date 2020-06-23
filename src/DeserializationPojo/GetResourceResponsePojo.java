@@ -3,6 +3,7 @@ package DeserializationPojo;
 public class GetResourceResponsePojo {
 	private ResourcePojo data;
 	private AdPojo ad;
+	
 	public ResourcePojo getData() {
 		return data;
 	}

@@ -3,6 +3,7 @@ package SerializationPojo;
 public class CreateUserPojo {
 	private String name;
 	private String job;
+		
 	public String getName() {
 		return name;
 	}

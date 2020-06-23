@@ -7,7 +7,7 @@ import DeserializationPojo.GetUserResponsePojo;
 import Resources.BaseUrl;
 
 public class SingleUserTest {
-	public static void main(String[] args) {
+	 public static void main(String[] args) {
 
 		RequestSpecification req_spec = new RequestSpecBuilder().setBaseUri(BaseUrl.baseUri()).build();
 		GetUserResponsePojo single_user = given().spec(req_spec)
@@ -20,10 +20,14 @@ public class SingleUserTest {
 		System.out.println(single_user.getAd().getCompany());
 		System.out.println(single_user.getAd().getText());
 		System.out.println(single_user.getAd().getUrl());
+	}
 
 //Single User Not Found API
-
-		given().spec(req_spec)
+		
+     public void main() {	
+			
+	    RequestSpecification req_spec = new RequestSpecBuilder().setBaseUri(BaseUrl.baseUri()).build();
+        given().spec(req_spec)
 	   .when().get("api/users/23")
 	   .then().assertThat()
 	   .statusCode(404);

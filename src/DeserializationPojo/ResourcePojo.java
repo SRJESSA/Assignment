@@ -9,6 +9,7 @@ public class ResourcePojo {
 	private String color;
 	@JsonProperty("pantone_value")
 	private String pantoneValue;
+	
 	public int getId() {
 		return id;
 	}

@@ -12,6 +12,7 @@ public class ListResourceResponsePojo {
 	private int totalPages;
 	private List<ResourcePojo> data;
 	private AdPojo ad;
+	
 	public int getPage() {
 		return page;
 	}

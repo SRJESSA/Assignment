@@ -10,6 +10,7 @@ public class UserPojo {
 	@JsonProperty("last_name")
 	private String lastName;
 	private String avatar;
+	
 	public int getId() {
 		return id;
 	}

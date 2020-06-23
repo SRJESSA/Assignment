@@ -3,6 +3,7 @@ package DeserializationPojo;
 public class GetUserResponsePojo {
 	private UserPojo data;
 	private AdPojo ad;
+	
 	public UserPojo getData() {
 		return data;
 	}

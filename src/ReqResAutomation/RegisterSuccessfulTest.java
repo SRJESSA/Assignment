@@ -9,7 +9,7 @@ import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 
 public class RegisterSuccessfulTest {
-	public static void main(String[] args) {
+	 public static void main(String[] args) {
 
 		RequestSpecification req_spec = new RequestSpecBuilder().setBaseUri(BaseUrl.baseUri()).build();
 		RegisterPojo register = new RegisterPojo();
@@ -30,12 +30,16 @@ public class RegisterSuccessfulTest {
 		js.getString("id");
 		String registerID = js.getString("id");
 		System.out.println(registerID);
+	}
 
 //Register Unsuccessful API
 
-		given().spec(req_spec).body("{\r\n" + " \"email\": \"sydney@fife\"\r\n" + "}")
+	 public void main() {	
+	
+		RequestSpecification req_spec = new RequestSpecBuilder().setBaseUri(BaseUrl.baseUri()).build();
+		given().log().all().spec(req_spec).body("{\r\n" + " \"email\": \"sydney@fife\"\r\n" + "}")
 		.header("Content-Type", "application/json").when().post("api/register")
-		.then().assertThat()
+		.then().log().all().assertThat()
 		.statusCode(400);
 	}
 }

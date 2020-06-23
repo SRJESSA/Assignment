@@ -4,6 +4,7 @@ public class AdPojo {
 	private String company;
 	private String url;
 	private String text;
+	
 	public String getCompany() {
 		return company;
 	}

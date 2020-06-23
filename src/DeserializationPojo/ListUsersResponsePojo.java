@@ -12,6 +12,7 @@ public class ListUsersResponsePojo {
 	private int totalPages;
 	private List<UserPojo> data;
 	private AdPojo ad;
+	
 	public int getPage() {
 		return page;
 	}
