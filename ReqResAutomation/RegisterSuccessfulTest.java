@@ -10,7 +10,12 @@ import io.restassured.specification.RequestSpecification;
 
 public class RegisterSuccessfulTest {
 	 public static void main(String[] args) {
+		 
+		 RegisterSuccessfulTest.user_registration_successful();
+		 RegisterSuccessfulTest.user_registration_not_successful();
+	 }
 
+	 private static void user_registration_successful() {
 		RequestSpecification req_spec = new RequestSpecBuilder().setBaseUri(BaseUrl.baseUri()).build();
 		RegisterPojo register = new RegisterPojo();
 		register.setEmail("eve.holt@reqres.in");
@@ -32,14 +37,11 @@ public class RegisterSuccessfulTest {
 		System.out.println(registerID);
 	}
 
-//Register Unsuccessful API
-
-	 public void main() {	
-	
-		RequestSpecification req_spec = new RequestSpecBuilder().setBaseUri(BaseUrl.baseUri()).build();
-		given().log().all().spec(req_spec).body("{\r\n" + " \"email\": \"sydney@fife\"\r\n" + "}")
-		.header("Content-Type", "application/json").when().post("api/register")
-		.then().log().all().assertThat()
-		.statusCode(400);
-	}
+	 private static void user_registration_not_successful() {
+		  RequestSpecification req_spec = new RequestSpecBuilder().setBaseUri(BaseUrl.baseUri()).build();
+	   	  given().spec(req_spec).body("{\r\n" + "\"email\": \"sydney@fife\"\r\n" +"}")
+		 .when().post("api/register")
+		 .then().log().all().assertThat()
+		 .statusCode(400);
+	 }
 }

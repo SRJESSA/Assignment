@@ -17,7 +17,7 @@ public class ListResourceTest {
 	   .body("perPage",equalTo(6))
 	   .body("total",equalTo(12))
 	   .body("totalPages",equalTo(2))
-       .body("data.Id", hasItems(1, 2, 3, 4, 5, 6))
+       .body("data.Id", hasItems(1, 2, 3, 4, 5,6))
 	   .body("data.Name",hasItems("cerulean", "fuchsia rose", "true red", "aqua sky", "tigerlily", "blue turquoise"))
 	   .body("data.Year", hasItems(2000, 2001, 2002, 2003, 2004, 2005))
 	   .body("data.Color", hasItems("#98B2D1", "#C74375", "#BF1932","#7BC4C4", "#E2583E","#53B0AE"))

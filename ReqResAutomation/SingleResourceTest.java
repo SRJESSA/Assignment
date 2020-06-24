@@ -9,10 +9,9 @@ import io.restassured.specification.RequestSpecification;
 public class SingleResourceTest {
 	public static void main(String[] args) {
 
-		single_resource_data();
-		single_resource_not_found();
+		SingleResourceTest.single_resource_data();
+		SingleResourceTest.single_resource_not_found();
 	}
-
 	private static void single_resource_data() {
 		RequestSpecification req_spec = new RequestSpecBuilder().setBaseUri(BaseUrl.baseUri()).build();
 		GetResourceResponsePojo single_res = given().spec(req_spec)

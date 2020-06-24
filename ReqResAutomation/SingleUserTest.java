@@ -9,10 +9,9 @@ import Resources.BaseUrl;
 public class SingleUserTest {
 	public static void main(String[] args) {
 
-		single_user_data();
-		single_user_not_found();
+		SingleUserTest.single_user_data();
+		SingleUserTest.single_user_not_found();
 	}
-
 	private static void single_user_data() {
 		RequestSpecification req_spec = new RequestSpecBuilder().setBaseUri(BaseUrl.baseUri()).build();
 		GetUserResponsePojo single_user = given().spec(req_spec)
@@ -26,7 +25,7 @@ public class SingleUserTest {
 		System.out.println(single_user.getAd().getText());
 		System.out.println(single_user.getAd().getUrl());
 	}
-
+	
 	private static void single_user_not_found() {
 
 		RequestSpecification req_spec = new RequestSpecBuilder().setBaseUri(BaseUrl.baseUri()).build();
